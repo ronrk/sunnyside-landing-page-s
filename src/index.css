@@ -1,13 +1,121 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap");
+
+:root {
+  --soft-red: hsl(7, 99%, 70%);
+  --yellow: hsl(51, 100%, 49%);
+  /* (graphic design text) */
+  --dark-desaturated-cyan: hsl(167, 40%, 24%);
+  /* (photography text:) */
+  --dark-blue: hsl(198, 62%, 26%);
+  /* (footer): */
+  --dark-moderate-cyan: hsl(168, 34%, 41%);
+
+  /* ### Neutral */
+
+  --very-dark-desaturated-blue: hsl(212, 27%, 19%);
+  --very-dark-grayish-blue: hsl(213, 9%, 39%);
+  --dark-grayish-blue: hsl(232, 10%, 55%);
+  --grayish-blue: hsl(210, 4%, 67%);
+  --white: hsl(0, 0%, 100%);
+
+  --font-barlow: "Barlow", sans-serif;
+  --font-fraunces: "Fraunces", serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.app-container {
+  position: relative;
+}
+
+.section-text:nth-child(odd) .content-container {
+  order: 1;
+}
+
+.section-img {
+  display: flex;
+}
+
+.clients-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.menu {
+  transition: all 0.2s;
+}
+.menu.hide {
+  display: none;
+  transition: all 0.2s;
+}
+.menu.show {
+  /* top: 15rem; */
+  display: none;
+  left: 10rem;
+  transform: scale(1);
+  transition: all 0.2s;
+}
+
+.menu::before {
+  position: absolute;
+  content: "";
+  /* background-color: var(--white); */
+  background-color: var(--white);
+  width: 5rem;
+  height: 5rem;
+  top: -5rem;
+  right: 0;
+  clip-path: polygon(100% 0%, 0% 100%, 100% 100%, 100% 100%);
+}
+
+@media screen and (max-width: 1000px) {
+  html {
+    font-size: 52%;
+  }
+}
+@media screen and (max-width: 850px) {
+  html {
+    font-size: 48%;
+  }
+}
+
+/* MOBILE */
+
+@media screen and (max-width: 650px) {
+  .section-text .content-container {
+    order: 1;
+  }
+  .section-img {
+    margin-top: 10rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100rem;
+  }
+
+  .clients-container {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .menu.show {
+    display: block;
+  }
 }
